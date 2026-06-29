@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JobFinder Near Me</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>🔍 JobFinder Near Me</h2>
+    <div class="nav-links">
+        <a href="/login" class="circle-btn user-btn">U</a>
+        <a href="/admin-login" class="circle-btn admin-btn">A</a>
+    </div>
+</div>
+
+<div class="hero">
+    <h1>Find Your <span>Dream Job</span></h1>
+    <p>Search jobs based on location and skills</p>
+
+    <form action="/search" method="post" class="search-box">
+        <input type="text" name="location" placeholder="📍 Location" required>
+        <input type="text" name="job" placeholder="💼 Job Skill / Role" required>
+        <button type="submit">Search Jobs</button>
+    </form>
+</div>
+
+<div class="features">
+    <div class="card">📍 Location Based Search</div>
+    <div class="card">⚡ Fast Results</div>
+    <div class="card">🔐 Secure Login</div>
+</div>
+
+</body>
+</html>

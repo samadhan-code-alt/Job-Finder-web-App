@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="results-container">
+    <h2>Job Results</h2>
+
+    {% if jobs %}
+        {% for job in jobs %}
+            <div class="job-card">
+                <h3>{{ job.job_title }}</h3>
+
+                <p><strong>Company:</strong> {{ job.company }}</p>
+                <p><strong>Location:</strong> {{ job.location }}</p>
+                <p><strong>Salary:</strong> {{ job.salary }}</p>
+                <p>{{ job.description }}</p>
+
+                <!-- ✅ STEP 4: APPLY JOB BUTTON -->
+                <a href="/apply/{{ job.id }}" class="apply-btn">
+                    Apply Job
+                </a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-jobs">❌ No jobs found for your search.</p>
+    {% endif %}
+
+    <a href="/" class="back-btn">← Back to Search</a>
+</div>
+
+</body>
+</html>

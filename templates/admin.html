@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="admin-container">
+    <h2>Admin Dashboard</h2>
+
+    <!-- ✅ STEP 2: VIEW APPLICATIONS LINK -->
+    <a href="/admin/applications" class="view-app-btn">
+        📄 View Job Applications
+    </a>
+
+    <hr>
+
+    <!-- ADD JOB FORM -->
+    <h3>Add New Job</h3>
+
+    <form method="post">
+        <input type="text" name="job_title" placeholder="Job Title" required>
+        <input type="text" name="company" placeholder="Company" required>
+        <input type="text" name="location" placeholder="Location" required>
+        <input type="text" name="salary" placeholder="Salary" required>
+        <textarea name="description" placeholder="Job Description" required></textarea>
+
+        <button type="submit">Add Job</button>
+    </form>
+
+    <hr>
+
+    <!-- JOB LIST -->
+    <h3>Posted Jobs</h3>
+
+    {% if jobs %}
+        {% for job in jobs %}
+            <div class="job-card">
+                <h4>{{ job.job_title }}</h4>
+                <p><strong>Company:</strong> {{ job.company }}</p>
+                <p><strong>Location:</strong> {{ job.location }}</p>
+                <p><strong>Salary:</strong> {{ job.salary }}</p>
+                <p>{{ job.description }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No jobs posted yet.</p>
+    {% endif %}
+
+    <a href="/logout" class="logout-btn">Logout</a>
+</div>
+
+</body>
+</html>

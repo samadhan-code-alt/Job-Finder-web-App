@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Applications</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="results-container">
+    <h2>📄 Job Applications</h2>
+
+    {% if applications %}
+        {% for app in applications %}
+            <div class="job-card">
+                <h3>{{ app.job_title }} ({{ app.company }})</h3>
+
+                <p><strong>Name:</strong> {{ app.name }}</p>
+                <p><strong>Email:</strong> {{ app.email }}</p>
+                <p><strong>Phone:</strong> {{ app.phone }}</p>
+                <p>
+                    <strong>Resume:</strong>
+                    <a href="{{ app.resume }}" target="_blank">
+                        View Resume
+                    </a>
+                </p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No applications received yet.</p>
+    {% endif %}
+
+    <a href="/admin" class="back-btn">← Back to Admin</a>
+</div>
+
+</body>
+</html>
